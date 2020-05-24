@@ -1,9 +1,14 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
+    background-color: lightcyan;
 }
 
 div {
     border-spacing: 1rem;
+}
+
+h1 {
+    text-align: center;
 }
 
 th {
@@ -15,6 +20,17 @@ th {
     text-decoration: underline;
 }
 
-// .formula {
-//     font-family: 'Noto Sans TC', sans-serif;
-// }
+#smallWithNames {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#smallWithNames>div {
+    background-color: #ff9999;
+    width: 180px;
+    margin: 5px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+}
