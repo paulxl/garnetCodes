@@ -8,6 +8,7 @@ import { GarnetsComponent } from './components/garnets/garnets.component';
 import { AboutComponent } from './about/about.component';
 import { ParksComponent } from './components/parks/parks.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ParkService } from './park.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [ParkService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
