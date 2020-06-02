@@ -11,8 +11,20 @@ h1 {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkgreen;
+}
+
 th {
     color: darkblue
+}
+
+table {
+    margin-left: 7%;
 }
 
 .name {
@@ -33,4 +45,11 @@ th {
     text-align: center;
     line-height: 75px;
     font-size: 20px;
+    border-radius: 7px;
+}
+
+#bigWithDetails {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Park } from './../../models/park';
 import { ParkService } from './../../services/park.service';
 
@@ -9,8 +9,9 @@ import { ParkService } from './../../services/park.service';
 })
 export class ParksComponent implements OnInit {
   constructor(private parkServ: ParkService) {}
-
-  // Fields
+  //@Input() parks: Park;
+  @Output() delete = new EventEmitter();
+  // ~~~~~~~~ Fields ~~~~~~~~~~~~~~~~~
   parks: Park[] = [];
   newPark: Park = new Park();
   editPark: Park = null;
@@ -38,46 +39,48 @@ export class ParksComponent implements OnInit {
     this.addNew = null;
     this.start = true;
   }
-  addNewVol() {
-    this.parkServ.create(this.newPark).subscribe(
-      (data) => {
-        this.newPark = new Park();
-        this.reload();
-      },
-      (err) => {
-        console.error('Error in vol add new' + err);
-      }
-    );
-    this.start = true;
-    this.addNew = null;
+  addNewPark() {
+    // this.parkServ.create(this.newPark).subscribe(
+    //   (data) => {
+    //     this.newPark = new Park();
+    //     this.reload();
+    //   },
+    //   (err) => {
+    //     console.error('Error in vol add new' + err);
+    //   }
+    // );
+    // this.start = true;
+    // this.addNew = null;
   }
-  updateVol() {
-    this.parkServ.update(this.editPark).subscribe(
-      (data) => {
-        this.reload();
-      },
-      (err) => {
-        console.error('Error in vol component update' + err);
-      }
-    );
-    this.start = true;
-    this.editPark = null;
-    this.selected = null;
+  updatePark() {
+    // this.parkServ.update(this.editPark).subscribe(
+    //   (data) => {
+    //     this.reload();
+    //   },
+    //   (err) => {
+    //     console.error('Error in vol component update' + err);
+    //   }
+    // );
+    // this.start = true;
+    // this.editPark = null;
+    // this.selected = null;
   }
-  setEditVol() {
+  setEditPark() {
     this.editPark = Object.assign({}, this.selected);
   }
 
-  deleteVol(id: string) {
-    this.parkServ.destroy(id).subscribe(
-      (data) => {
-        this.reload();
-      },
-      (err) => {
-        console.error('Error in vol componenet.delete' + err);
-      }
-    );
-    this.start = true;
-    this.selected = null;
+  deletePark(id: string) {
+    this.delete.emit(this.parks);
+    //   this.parkServ.destroy(id).subscribe(
+    //     (data) => {
+    //       this.reload();
+    //     },
+    //     (err) => {
+    //       console.error('Error in vol componenet.delete' + err);
+    //     }
+    //   );
+    //   this.start = true;
+    //   this.selected = null;
+    // }
   }
 }
